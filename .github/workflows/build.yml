@@ -1,0 +1,37 @@
+name: Build macOS App
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装依赖
+        run: |
+          pip install -r requirements.txt
+
+      - name: 确认 SVN 可用
+        run: |
+          svn --version --quiet
+
+      - name: 打包
+        run: |
+          python build.py
+
+      - name: 上传产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: MacSvnTool-macOS
+          path: dist/MacSvnTool.app
