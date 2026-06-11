@@ -18,7 +18,11 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: 安装依赖
+      - name: 安装 SVN
+        run: |
+          brew install svn
+
+      - name: 安装 Python 依赖
         run: |
           pip install -r requirements.txt
 
