@@ -1,10 +1,10 @@
 import os
 
 from PySide6.QtWidgets import (
-    QWidget, QVBoxLayout, QTreeView, QMenu, QAbstractItemView
+    QWidget, QVBoxLayout, QTreeView, QMenu, QAbstractItemView, QFileSystemModel
 )
 from PySide6.QtCore import Qt, Signal, QModelIndex, QDir
-from PySide6.QtGui import QFileSystemModel, QColor, QDesktopServices
+from PySide6.QtGui import QColor, QDesktopServices
 from PySide6.QtCore import QUrl
 
 from src.models.svn_status import SvnStatus, SvnItemStatus
